@@ -13,9 +13,6 @@ public class Login {
 
         private  WebDriver driver;
 
-    public Login() {
-    }
-
     @Before
         public void start() {
             driver = new ChromeDriver();
