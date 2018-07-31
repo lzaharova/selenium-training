@@ -46,21 +46,20 @@ public class Task7 {
             assertTrue(areElementPresent(By.cssSelector("#content h1")));
 
             List<WebElement> submenu = driver.findElements(By.cssSelector("ul.docs li"));
-            if (submenu.size() > 0) {
-                for (int j = 1; j <= submenu.size(); j++) {
+            for (int j = 1; j <= submenu.size(); j++) {
                     driver.findElement(By.cssSelector("ul.docs > li:nth-child(" + j + ") a")).click();
                     assertTrue(areElementPresent(By.cssSelector("#content h1")));
                 }
             }
         }
+
+
+    @After
+    public void stop() {
+        driver.quit();
+        driver = null;
+
     }
-
-     @After
-     public void stop() {
-         driver.quit();
-         driver = null;
-
-     }
 
     private boolean areElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
