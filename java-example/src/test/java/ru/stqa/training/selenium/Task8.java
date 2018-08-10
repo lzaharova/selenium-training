@@ -28,14 +28,14 @@ public class Task8 {
     }
 
     @Test
-        public void task8() {
-            driver.get("http://localhost/litecart/en/");
+    public void task8() {
+        driver.get("http://localhost/litecart/en/");
 
-            List<WebElement> elements = driver.findElements(By.cssSelector("li.product"));
-                 assertTrue(areElementPresent(By.cssSelector("div.sticker")));
-                 boolean arePresent = (elements.size() == 1);
+        List<WebElement> elements = driver.findElements(By.cssSelector("li.product"));
+        assertTrue(areElementPresent(By.cssSelector("div.sticker")));
+        boolean arePresent = (elements.size() == 1);
 
-        }
+    }
 
     @After
     public void stop() {
@@ -49,10 +49,5 @@ public class Task8 {
 
     }
 }
-
-
-
-
-
 
 
