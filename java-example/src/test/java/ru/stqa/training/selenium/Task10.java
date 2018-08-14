@@ -19,7 +19,7 @@ public class Task10 {
 
     private WebDriver driver;
 
-      @Before
+    @Before
     public void start() {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
@@ -28,8 +28,8 @@ public class Task10 {
 
     }
 
-        // а) на главной странице и на странице товара совпадает текст названия товара
-        // б) на главной странице и на странице товара совпадают цены (обычная и акционная)
+    // а) на главной странице и на странице товара совпадает текст названия товара
+    // б) на главной странице и на странице товара совпадают цены (обычная и акционная)
     @Test
     public void task1() {
 
@@ -48,9 +48,9 @@ public class Task10 {
         card.add(driver.findElement(By.cssSelector("#box-product .regular-price")).getAttribute("innerText"));
         card.add(driver.findElement(By.cssSelector("#box-product .campaign-price")).getAttribute("innerText"));
         assertEquals(main,card);
-        }
+    }
 
-       // в) обычная цена зачёркнутая и серая(цвета надо проверить на каждой странице независимо)
+    // в) обычная цена зачёркнутая и серая(цвета надо проверить на каждой странице независимо)
     @Test
     public void task2 (){
 
@@ -85,8 +85,8 @@ public class Task10 {
             assertEquals(k,j);
         }
     }
-        // г) акционная жирная и красная(цвета надо проверить на каждой странице независимо)
-        // д) акционная цена крупнее, чем обычная (это тоже надо проверить на каждой странице независимо)
+    // г) акционная жирная и красная(цвета надо проверить на каждой странице независимо)
+    // д) акционная цена крупнее, чем обычная (это тоже надо проверить на каждой странице независимо)
     @Test
     public void task3(){
 
@@ -114,10 +114,10 @@ public class Task10 {
         String salecolorcard = driver.findElement(By.cssSelector("#box-product .campaign-price")).getCssValue("color");
         String replacecard=salecolor.replace(" ","");
         String[] arrcard = replacecard.substring(replacecard.indexOf("(")+1,replacecard.lastIndexOf(")")).split("\\,");
-        String nk = arr[1];
-        String rt = arr[2];
-        assertEquals(nk, "0");
-        assertEquals(rt, "0");
+        String m = arrcard[1];
+        String n = arrcard[2];
+        assertEquals(m, "0");
+        assertEquals(n, "0");
         Double cardfont = Double.parseDouble(driver.findElement(By.cssSelector("#box-product .regular-price")).getCssValue("font-size").replace("px",""));
         Double cardsalefont = Double.parseDouble(driver.findElement(By.cssSelector("#box-product .campaign-price")).getCssValue("font-size").replace("px",""));
 
@@ -132,5 +132,5 @@ public class Task10 {
         driver = null;
 
     }
-    
+
 }
